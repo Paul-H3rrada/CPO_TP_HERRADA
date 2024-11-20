@@ -17,48 +17,40 @@ import Armes.Arme;
 import java.util.ArrayList;
 
 public class TP3_Heroic_Fantasy_HERRADA {
-  public static void main(String[] args) {
-        ArrayList<Arme> armes = new ArrayList<Arme>();
-      
-        Epee Exalibur = new Epee("Excalibur", 7, 5);
-        Epee Durandal = new Epee("Durandal",4,7);
-        Baton Chêne = new Baton("Chêne",4,5);
-        Baton Charme = new Baton("Charme",5,6);
+    public static void main(String[] args) {
+
+        Baton Chene = new Baton("Chêne", 4, 5);
+        Baton Charme = new Baton("Charme", 5, 6);
+        Epee Excalibur = new Epee("Excalibur", 7, 5);
+        Epee Durandal = new Epee("Durandal", 4, 7);
+
+        Guerrier Conan = new Guerrier("Conan", 100, true);  // Guerrier avec cheval
+        Magicien Gandalf = new Magicien("Gandalf", 65, false); // Magicien non confirmé
+
+        Conan.ajouterArme(Excalibur);
+        Conan.ajouterArme(Charme);
+        Gandalf.ajouterArme(Chene);
+        Gandalf.ajouterArme(Durandal);
+
+        Conan.equiperArme("Excalibur");
+        Gandalf.equiperArme("Chêne");
+
+        System.out.println("Avant le combat : ");
+        System.out.println("Magicien: " + Gandalf);
+        System.out.println("Guerrier: " + Conan);
+
+        Gandalf.attaquer(Conan);
+        System.out.println("\nAprès l'attaque du magicien : ");
+        System.out.println("Magicien: " + Gandalf);
+        System.out.println("Guerrier: " + Conan);
         
-        
-        
-        
-        armes.add(Chêne);
-        armes.add(Exalibur);
-        armes.add(Durandal);
-        armes.add(Charme);
-        
-         System.out.println("Liste des armes :");
-        for (int i = 0; i < armes.size(); i++) {
-            Arme arme = armes.get(i);
-            System.out.println("Arme " + (i + 1) + ": " + arme);
-        }
-        
-        ArrayList<Personnage>personnages = new ArrayList<Personnage>();
-        
-        Magicien Gandalf = new Magicien("Gandald",65,true);
-        Magicien Garcimore = new Magicien("Garcimore",44,false);
-        Guerrier Conan = new Guerrier("Conan",78,false);
-        Guerrier Lannister = new Guerrier("Lannister",45,true);
-        
-        personnages.add(Gandalf);
-        personnages.add(Garcimore);
-        personnages.add(Conan);
-        personnages.add(Lannister);
-        
-         System.out.println("Liste des personnages :");
-        for (int j = 0; j < personnages.size(); j++) {
-         Personnage personnage = personnages.get(j);
-         System.out.println("Personnage" + (j + 1) + ": " + personnage);
-  }       
-        ArrayList<Arme> weapon = new ArrayList<Arme>();
-        
-        
+        Conan.attaquer(Gandalf);
+        System.out.println("\nAprès l'attaque du guerrier : ");
+        System.out.println("Magicien: " + Gandalf);
+        System.out.println("Guerrier: " + Conan);
+
+        System.out.println("\nEst-ce que les personnages sont toujours vivants ?");
+        System.out.println("Magicien vivant ? " + Gandalf.estVivant());
+        System.out.println("Guerrier vivant ? " + Conan.estVivant());
     }
-    
 }
